@@ -2,35 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Partnered with ADVANCED</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partnered by ADVANCED</title>
   <style>
     body {
-      background: transparent;
       margin: 0;
-      overflow: hidden;
+      background: transparent;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      font-family: Arial, sans-serif;
     }
 
     .logo-container {
       position: relative;
-      display: inline-block;
-      padding: 15px 30px;
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 25px;
       background: rgba(0, 0, 0, 0.6);
       border-radius: 12px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.6);
       overflow: hidden;
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      gap: 12px;
     }
 
     .logo-container img {
-      height: 70px; /* make logo nice and large */
+      height: 40px; /* Adjust as needed */
       display: block;
     }
 
-    /* Rainbow shine */
     .shine {
       position: absolute;
       top: 0;
@@ -64,7 +68,8 @@
 </head>
 <body>
   <div class="logo-container">
-    <img src="https://advanced.gg/cdn/shop/files/ADV_LOGO_WHITE.png?v=1754070590&width=600" alt="ADVANCED.gg Logo">
+    Partnered by
+    <img src="https://advanced.gg/cdn/shop/files/ADV-Logo-No-TM_600x.png?v=1686939189" alt="ADVANCED.gg">
     <div class="shine" id="shine"></div>
   </div>
 
@@ -75,11 +80,12 @@
       shine.classList.add('shine-active');
       setTimeout(() => {
         shine.classList.remove('shine-active');
-      }, 2000); // match animation duration
+      }, 2000);
     }
 
-    // Trigger once on load
-    triggerShine();
-    // Then every 60 seconds
-    setInte
+    triggerShine();               // Initial shine on load
+    setInterval(triggerShine, 60000); // Repeat every 60 seconds
+  </script>
+</body>
+</html>
 
