@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partnered with ADVANCED</title>
+  <style>
+    body {
+      background: transparent;
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .logo-container {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .shine {
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 150%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 75%
+      );
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .shine-active {
+      animation: shine-rainbow 2s forwards;
+    }
+
+    @keyframes shine-rainbow {
+      0% {
+        left: -150%;
+      }
+      100% {
+        left: 150%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <img src="https://advanced.gg/cdn/shop/files/ADV_Focus_Icon.png?v=xxxxx" alt="ADVANCED logo">
+    Partnered with ADVANCED
+    <div class="shine" id="shine"></div>
+  </div>
+
+  <script>
+    const shine = document.getElementById('shine');
+
+    function triggerShine() {
+      shine.classList.add('shine-active');
+      setTimeout(() => shine.classList.remove('shine-active'), 2000);
+    }
+
+    // Trigger once on page load
+    triggerShine();
+    // Repeat every 60 seconds
+    setInterval(triggerShine, 60000);
+  </script>
+</body>
+</html>
