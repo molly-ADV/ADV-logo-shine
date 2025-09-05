@@ -31,7 +31,7 @@
     }
 
     .logo-container img {
-      height: 40px; /* Adjust as needed */
+      height: 40px; /* size of ADVANCED logo */
       display: block;
     }
 
@@ -43,21 +43,16 @@
       height: 100%;
       background: linear-gradient(
         120deg,
-        rgba(255,0,0,0) 0%,
-        rgba(255,0,0,0.6) 15%,
-        rgba(255,165,0,0.6) 30%,
-        rgba(255,255,0,0.6) 45%,
-        rgba(0,255,0,0.6) 60%,
-        rgba(0,0,255,0.6) 75%,
-        rgba(75,0,130,0.6) 90%,
-        rgba(238,130,238,0.6) 100%
+        transparent 0%,
+        rgba(255, 255, 255, 0.7) 50%,
+        transparent 100%
       );
       transform: skewX(-20deg);
       pointer-events: none;
     }
 
     .shine-active {
-      animation: shine 2s forwards;
+      animation: shine 1.5s forwards;
     }
 
     @keyframes shine {
@@ -80,12 +75,11 @@
       shine.classList.add('shine-active');
       setTimeout(() => {
         shine.classList.remove('shine-active');
-      }, 2000);
+      }, 1500); // matches animation duration
     }
 
-    triggerShine();               // Initial shine on load
-    setInterval(triggerShine, 60000); // Repeat every 60 seconds
+    triggerShine();               // Shine once on load
+    setInterval(triggerShine, 30000); // Every 30 seconds
   </script>
 </body>
 </html>
-
