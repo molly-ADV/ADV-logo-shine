@@ -9,7 +9,6 @@
       background: transparent;
       margin: 0;
       overflow: hidden;
-      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,21 +17,20 @@
 
     .logo-container {
       position: relative;
-      display: inline-flex;
-      align-items: center;
-      padding: 10px 20px;
+      display: inline-block;
+      padding: 15px 30px;
       background: rgba(0, 0, 0, 0.6);
-      border-radius: 8px;
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+      overflow: hidden;
     }
 
     .logo-container img {
-      height: 40px;
-      margin-right: 10px;
+      height: 70px; /* make logo nice and large */
+      display: block;
     }
 
+    /* Rainbow shine */
     .shine {
       position: absolute;
       top: 0;
@@ -41,30 +39,32 @@
       height: 100%;
       background: linear-gradient(
         120deg,
-        transparent 25%,
-        rgba(255, 255, 255, 0.8) 50%,
-        transparent 75%
+        rgba(255,0,0,0) 0%,
+        rgba(255,0,0,0.6) 15%,
+        rgba(255,165,0,0.6) 30%,
+        rgba(255,255,0,0.6) 45%,
+        rgba(0,255,0,0.6) 60%,
+        rgba(0,0,255,0.6) 75%,
+        rgba(75,0,130,0.6) 90%,
+        rgba(238,130,238,0.6) 100%
       );
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    }
-    .shine-active {
-      animation: shine-rainbow 2s forwards;
+      transform: skewX(-20deg);
+      pointer-events: none;
     }
 
-    @keyframes shine-rainbow {
-      0% {
-        left: -150%;
-      }
-      100% {
-        left: 150%;
-      }
+    .shine-active {
+      animation: shine 2s forwards;
+    }
+
+    @keyframes shine {
+      0% { left: -150%; }
+      100% { left: 150%; }
     }
   </style>
 </head>
 <body>
   <div class="logo-container">
-    <img src="https://advanced.gg/cdn/shop/files/ADV_Focus_Icon.png?v=xxxxx" alt="ADVANCED logo">
-    Partnered with ADVANCED
+    <img src="https://advanced.gg/cdn/shop/files/ADV_LOGO_WHITE.png?v=1754070590&width=600" alt="ADVANCED.gg Logo">
     <div class="shine" id="shine"></div>
   </div>
 
@@ -73,13 +73,13 @@
 
     function triggerShine() {
       shine.classList.add('shine-active');
-      setTimeout(() => shine.classList.remove('shine-active'), 2000);
+      setTimeout(() => {
+        shine.classList.remove('shine-active');
+      }, 2000); // match animation duration
     }
 
-    // Trigger once on page load
+    // Trigger once on load
     triggerShine();
-    // Repeat every 60 seconds
-    setInterval(triggerShine, 60000);
-  </script>
-</body>
-</html>
+    // Then every 60 seconds
+    setInte
+
